@@ -6,7 +6,7 @@ before_install:
   - docker build -t calexa22/multi-docker-test-dev -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=TRUE calexa22/multi-docker-test-dev yarn test
+  - docker run -e CI=true calexa22/multi-docker-test-dev yarn test
 
 after_success:
   - docker build -t calexa22/multi-docker-test-client ./client
