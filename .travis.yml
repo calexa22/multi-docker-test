@@ -15,7 +15,7 @@ after_success:
   - docker build -t calexa22/multi-docker-test-worker ./worker
 
   # Log in to Docker CLI
-  - echo "$DOCKER_PASS" | docker login -u "$DOCKER_ID"  --pasword-stdin
+  - echo "$DOCKER_PASS" | docker login -u "$DOCKER_ID"  --password-stdin
 
   # Push images to Docker Hub
   - docker push calexa22/multi-docker-test-client
