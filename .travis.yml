@@ -1,5 +1,6 @@
- sudo: required
- services:
+sudo: required
+
+services:
   - docker
 
 before_install:
@@ -22,3 +23,14 @@ after_success:
   - docker push calexa22/multi-docker-test-proxy
   - docker push calexa22/multi-docker-test-server
   - docker push calexa22/multi-docker-test-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: multi-docker-test
+  env: Multidockertest-env
+  bucket_name: elasticbeanstalk-us-east-2-984595019613
+  on:
+    branch: master
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
